@@ -47,4 +47,18 @@ z %>%
 
 
 
+```{r} 
+train <- read_sheet("1QV7o63fiZdNtMtLQfdwREapf8eYDjpfSRX0dgfNrB8A")
+```
+
+```{r}
+mean(train$income)
+median(train$income)
+
+rep_sample_n(train, 5, replace = TRUE, reps = 1) %>% 
+  group_by(replicate) %>% 
+  arrange(desc(income)) %>% 
+  pull(income)
+
+```
 
