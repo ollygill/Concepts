@@ -10,6 +10,7 @@ knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 
 library(tidyverse)
 library(googlesheets4)
+library(moderndive)
 ```
 
 
@@ -20,9 +21,18 @@ x <- read_sheet("1cgP-e6THVfiW5TJ95QhX3jkNxKvc8Sicp9k_BkSRd2I") %>%
   drop_na()
 ```
 
+### The World
 ```{r}
 x %>% 
   ggplot(aes(prop_red)) +
-  geom_histogram(binwidth = .04)
+  geom_bar()
+
+```
+
+### The Model
+```{r}
+urn <- tibble(bead = c(rep("Red", 2000), rep("White", 8000)))
+
+# rep_sample_n(urn, 27)
 ```
 
